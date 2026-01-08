@@ -2,6 +2,9 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
+-- disable mouse
+opt.mouse = ""
+
 opt.relativenumber = true
 opt.number = true
 
