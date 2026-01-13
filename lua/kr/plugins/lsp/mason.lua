@@ -6,6 +6,7 @@ return {
       ensure_installed = {
         "ts_ls",
         "html",
+        "prismals",
         "cssls",
         "tailwindcss",
         "lua_ls",
