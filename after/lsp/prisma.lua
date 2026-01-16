@@ -1,3 +1,3 @@
 return {
-  filetypes = { "prisma" },
+  filetypes = { "prisma", "typescriptreact", "javascriptreact" },
 }
