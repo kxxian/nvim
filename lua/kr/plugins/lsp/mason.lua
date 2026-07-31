@@ -10,6 +10,8 @@ return {
         "cssls",
         "tailwindcss",
         "lua_ls",
+        "djls",
+        "djlsp",
         "intelephense",
         "svelte",
         "graphql",
