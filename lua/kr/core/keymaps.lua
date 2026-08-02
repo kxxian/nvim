@@ -2,42 +2,70 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
-keymap.set("n", "<leader>qq", vim.cmd.Ex, { desc = "Open Ex mode" })
+-- ==========================================================
+-- File Explorer
+-- ==========================================================
+keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Open file explorer" })
 
-keymap.set("n", "<leader>ww", "<cmd>:w<CR>", { desc = "Save" })
-keymap.set("n", "<leader>wq", "<cmd>:wq<CR>", { desc = "Save and quit" })
+-- ==========================================================
+-- File Operations
+-- ==========================================================
+keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "Write file" })
+keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit window" })
+keymap.set("n", "<leader>Q", "<cmd>q!<CR>", { desc = "Force quit window" })
+keymap.set("n", "<leader>x", "<cmd>x<CR>", { desc = "Save and quit" })
+keymap.set("n", "<leader>X", "<cmd>xa<CR>", { desc = "Save all & quit" })
 
+-- ==========================================================
+-- Mode Switching
+-- ==========================================================
 keymap.set({ "i", "v", "s" }, "jk", "<Esc>", { desc = "Exit to Normal mode " })
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+-- ==========================================================
+-- Search
+-- ==========================================================
+keymap.set("n", "<leader>nh", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 
--- move lines in visual mode
+-- ==========================================================
+-- Visual Mode
+-- ==========================================================
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines up in visual mode" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines down in visual mode" })
 
--- increment/decrement numbers
+-- ==========================================================
+-- Numbers
+-- ==========================================================
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
--- window management
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+-- ==========================================================
+-- Window Management
+-- ==========================================================
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split vertically" }) -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Equal splits" }) -- make split windows equal width & height
+keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close split" }) -- close current split window
 
--- move cursor focus
-keymap.set("n", "sh", "<C-w>h", { desc = "move cursor focus in left" })
-keymap.set("n", "sj", "<C-w>j", { desc = "move cursor focus in down" })
-keymap.set("n", "sk", "<C-w>k", { desc = "move cursor focus in up" })
-keymap.set("n", "sl", "<C-w>l", { desc = "move cursor focus in right" })
+-- ==========================================================
+-- Window Navigation
+-- ==========================================================
+keymap.set("n", "sh", "<C-w>h", { desc = "Focus left" })
+keymap.set("n", "sl", "<C-w>l", { desc = "Focus right" })
+keymap.set("n", "sk", "<C-w>k", { desc = "Focus up" })
+keymap.set("n", "sj", "<C-w>j", { desc = "Focus down" })
 
+-- ==========================================================
+-- Tabs
+-- ==========================================================
 -- keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 -- keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 -- keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 -- keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 -- keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
--- source file
+-- ==========================================================
+-- Neovim
+-- ==========================================================
 vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end, { desc = "Source vim file" })
