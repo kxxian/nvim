@@ -19,7 +19,8 @@ keymap.set("n", "<leader>X", "<cmd>xa<CR>", { desc = "Save all & quit" })
 -- ==========================================================
 -- Mode Switching
 -- ==========================================================
-keymap.set({ "i", "v", "s" }, "jk", "<Esc>", { desc = "Exit to Normal mode " })
+keymap.set("i", "jk", "<Esc>", { desc = "Exit to Insert mode" })
+keymap.set("v", "<C-c>", "<Esc>", { desc = "Exit visual mode" })
 
 -- ==========================================================
 -- Search
