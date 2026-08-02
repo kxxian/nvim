@@ -4,13 +4,16 @@ local keymap = vim.keymap -- for conciseness
 
 keymap.set("n", "<leader>qq", vim.cmd.Ex, { desc = "Open Ex mode" })
 
+keymap.set("n", "<leader>ww", "<cmd>:w<CR>", { desc = "Save" })
+keymap.set("n", "<leader>wq", "<cmd>:wq<CR>", { desc = "Save and quit" })
+
+keymap.set({ "i", "v", "s" }, "jk", "<Esc>", { desc = "Exit to Normal mode " })
+
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+
 -- move lines in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines up in visual mode" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines down in visual mode" })
-
-keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj " })
-
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
